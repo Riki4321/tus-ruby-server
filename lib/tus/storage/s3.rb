@@ -35,6 +35,7 @@ module Tus
 
         @bucket         = Aws::S3::Bucket.new(name: bucket, **client_options)
         @prefix         = prefix
+        @default_prefix = prefix
         @upload_options = upload_options
         @limits         = limits
       end
@@ -221,10 +222,12 @@ module Tus
       end
 
       def set_upload_prefix(upload_prefix)
-        if prefix
-          @prefix = "#{prefix}/#{upload_prefix}"
-        else
-          @prefix = "#{upload_prefix}"
+        if upload_prefix.present?
+          if default_prefix
+            @prefix = "#{default_prefix}/#{upload_prefix}"
+          else
+            @prefix = "#{upload_prefix}"
+          end
         end
       end
 
