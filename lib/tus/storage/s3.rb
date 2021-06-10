@@ -223,8 +223,8 @@ module Tus
 
       def set_upload_prefix(upload_prefix)
         if upload_prefix.present?
-          if default_prefix
-            @prefix = "#{default_prefix}/#{upload_prefix}"
+          if @default_prefix
+            @prefix = "#{@default_prefix}/#{upload_prefix}"
           else
             @prefix = "#{upload_prefix}"
           end
