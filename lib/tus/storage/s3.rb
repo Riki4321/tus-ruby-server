@@ -228,6 +228,8 @@ module Tus
           else
             @prefix = "#{upload_prefix}"
           end
+        else
+          @prefix = @default_prefix
         end
       end
 
