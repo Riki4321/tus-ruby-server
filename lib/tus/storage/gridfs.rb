@@ -211,6 +211,10 @@ module Tus
         chunks_collection.delete_many(files_id: {"$in" => grid_info_ids})
       end
 
+      def set_upload_prefix(upload_prefix)
+        # TODO: to be implemented if needed
+      end
+
       private
 
       # Creates a GridFS file.

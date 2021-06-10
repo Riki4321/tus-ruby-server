@@ -113,6 +113,10 @@ module Tus
         delete(uids)
       end
 
+      # not applicable for FileSystem storage type
+      def set_upload_prefix(upload_prefix)
+      end
+
       private
 
       def delete(uids)
